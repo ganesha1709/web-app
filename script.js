@@ -18,3 +18,17 @@ if ('serviceWorker' in navigator) {
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 }
+function showNotification() {
+    if ('Notification' in window && navigator.serviceWorker) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                navigator.serviceWorker.ready.then(registration => {
+                    registration.showNotification('🚀 USD to INR Converter', {
+                        body: 'Your currency conversion tool is ready!',
+                        icon: 'icon-192.png'
+                    });
+                });
+            }
+        });
+    }
+}
