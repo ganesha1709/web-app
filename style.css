@@ -52,3 +52,20 @@ h2#result {
     margin: auto;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
+body.dark-mode {
+    background: linear-gradient(135deg, #141E30, #243B55);
+    color: #ddd;
+}
+
+body.dark-mode .container {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode button {
+    background-color: #6a3093;
+}
+
+body.dark-mode button:hover {
+    background-color: #a044ff;
+}
+
