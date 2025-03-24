@@ -14,3 +14,7 @@ if ('serviceWorker' in navigator) {
         });
     });
 }
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
