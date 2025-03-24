@@ -32,3 +32,5 @@ function showNotification() {
         });
     }
 }
+window.addEventListener('load', showNotification);
+
