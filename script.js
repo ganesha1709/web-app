@@ -1,23 +1,55 @@
+// Check if user is logged in
+window.onload = function() {
+    if (localStorage.getItem("loggedInUser")) {
+        showApp();
+    }
+};
+
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let storedEmail = localStorage.getItem("userEmail");
+    let storedPassword = localStorage.getItem("userPassword");
+
+    if (email === storedEmail && password === storedPassword) {
+        localStorage.setItem("loggedInUser", email);
+        showApp();
+    } else {
+        document.getElementById("auth-message").innerText = "Invalid credentials!";
+    }
+}
+
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    document.getElementById("app-container").style.display = "none";
+    document.getElementById("auth-container").style.display = "block";
+}
+
+function showApp() {
+    document.getElementById("auth-container").style.display = "none";
+    document.getElementById("app-container").style.display = "block";
+}
+
+// Sign Up (For First-Time Users)
+function signUp(email, password) {
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+    alert("Sign-up successful! Now log in.");
+}
+
+// Currency Conversion Function (Same as before)
 function convertCurrency() {
     const usd = document.getElementById("usd").value;
     const inr = usd * 83.2; // Example conversion rate
     document.getElementById("result").innerText = `${usd} USD = ₹${inr.toFixed(2)} INR`;
 }
 
-// Register service worker for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js').then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-        }).catch(error => {
-            console.log('Service Worker registration failed:', error);
-        });
-    });
+// Dark Mode Toggle (Same as before)
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
 }
 
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-}
 function showNotification() {
     if ('Notification' in window && navigator.serviceWorker) {
         Notification.requestPermission().then(permission => {
