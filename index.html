@@ -11,23 +11,12 @@
     <link rel="apple-touch-icon" href="icon-512.png">
 </head>
 <body>
-    <!-- Login Section -->
-    <div class="auth-container" id="auth-container">
-        <h2>Login to Continue</h2>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        <input type="password" id="password" placeholder="Enter your password" required>
-        <button onclick="login()">Login</button>
-        <p id="auth-message"></p>
-    </div>
-
-    <!-- Main App (Initially Hidden) -->
-    <div class="container" id="app-container" style="display:none;">
+    <div class="container">
         <h1>USD to INR Converter 💰</h1>
         <input type="number" id="usd" placeholder="Enter USD amount" />
         <button onclick="convertCurrency()">Convert</button>
         <h2 id="result"></h2>
         <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-        <button onclick="logout()">🚪 Logout</button>
     </div>
 
     <script src="script.js"></script>
